@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #080808;
+    --foreground: #ff981f;
+
+    --osrs-brown-dark: #1a1510;
+    --osrs-brown-mid: #2c241c;
+    --osrs-stone: #121212;
+    --osrs-stone-inner: #0a0a0a;
+    --osrs-gold: #ff981f;
+    --osrs-emerald: #38d538;
+
+    --font-rs: 'RuneScape', 'Courier New', monospace;
+    --font-rs-bold: 'RuneScape Bold', 'Courier New', monospace;
+  }
+
+  @font-face {
+    font-family: 'RuneScape';
+    src: url('/runescape-DQN9yYnB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'RuneScape Bold';
+    src: url('/runescape-bold-CcomrcR5.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-rs);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: pixelated;
+    font-smooth: never;
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  button,
+  input {
+    font-family: var(--font-rs) !important;
+    -webkit-font-smoothing: none !important;
+    font-smooth: never !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-rs-bold) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--osrs-gold);
+    text-shadow: 1px 1px 0 #000, 1.5px 1.5px 0 #000, 2px 2px 0 #000;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
+  }
+}
+
+@theme inline {
+  --color-osrs-brown-dark: var(--osrs-brown-dark);
+  --color-osrs-brown-mid: var(--osrs-brown-mid);
+  --color-osrs-emerald: var(--osrs-emerald);
+  --color-osrs-gold: var(--osrs-gold);
+}
+
+@layer components {
+
+  .osrs-panel {
+    background-image: url("/repeatable.png");
+    background-repeat: repeat;
+    background-clip: padding-box;
+    border: 12px solid #1c1b1b;
+    border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAH6SURBVHgB7Zg/T8JAFMBfmzqUhfg3Go0VExfQxYSNzcnBwTg4OJn4BfRT6QdwNrrqYrRxUdsaJQg0GEBKKe3JOyweLaCmUB36Sxro3eO9X66l6TsOOnAE+jJg6kdwA+YIx0RwZG9vC+ym4wu7uZVBlpVBmb4llUqQtdVUz7njk1MqI7gSDbMJtZrhC6xWDQgK5qhU3n3jptWEdHoNLi9viIADuBIoMb8wB4bRAEXRgOcB1EcNnp7zgVYD0bQcR2yHLC5J9DyZXKF1ZPkOTMOiYwL7g6urayjmC7C0LA1NwuUzF5Vx60xMTYJD2rcDzwbHYjHAwGFLsDJPqtapw8L7gtXRSLAyyv2jb1wIU8LlJafTyzQ9O8MOcwT/XpI0G/Rh8Wvi8RgRxTHiPsNCF+gB4eGfEIl4iUS8RCJeIhEvkYiXSMRLJOKFF0URjg4PyP7+bujvJRsbGZLJpPHFqL0i2WwO8q952YDE0Ga+m6DnqxRM+7Lk2hUAxFBmtgLRbfPTJqmV4SPhHswBIJaWQyroRbp68IdmDnZxe03dT1IuzsDE+GXQm3jm1/pecNo06/lN7K9BPbwHK5So+HB5Xe2RAQzKEoaqsZr9LDcRyIj090xQi4JdDaGiDr60mwLBuarQ6dxTRNCArmMOtWzzlVewF0YLq6v92o+QCqxQulZkgVtQAAAABJRU5ErkJggg==) 9 round;
+    box-shadow:
+      0 0 1px 3px #242424 inset,
+      4px 4px 15px rgba(0, 0, 0, 0.8);
+    border-radius: 6px;
+    position: relative;
+    padding: 12px;
+  }
+
+
+  .osrs-inner-panel {
+    background-image: url("/repeatable.png");
+    background-repeat: repeat;
+    background-clip: padding-box;
+    border: 10px solid transparent;
+    border-image: url(data:image/png;base64,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) 10 / 10px repeat;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+    padding: 8px;
+  }
+
+  .osrs-button {
+    background-color: var(--osrs-brown-mid);
+    border: 2px solid var(--osrs-gold);
+    color: var(--osrs-gold);
+    padding: 4px 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.1s;
+    cursor: pointer;
+    text-shadow: 1px 1px 0 #000;
+  }
+
+  .osrs-button:hover {
+    filter: brightness(1.2);
+    transform: translateY(-1px);
+  }
+
+  .osrs-button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  .solid-text-shadow {
+    text-shadow: 1px 1px #000, 1.5px 1.5px #000, 2px 2px #000;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 22px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-image: url('/Scrollbar/scrolltrack.png');
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    border-image-source: url('/Scrollbar/scrollthumb.png');
+    border-image-slice: 7;
+    border-image-width: 16px;
+    border-image-repeat: stretch;
+    background-color: transparent;
+    background-clip: content-box;
+    min-height: 30px;
+  }
+
+  /* Hide all buttons by default to prevent invisible blockers/gaps */
+  ::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
+  /* Enable only the single buttons at start/end */
+  ::-webkit-scrollbar-button:single-button {
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 22px;
+    width: 22px;
+  }
+
+  /* Up Arrow (Top) */
+  ::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-image: url('/Scrollbar/arrowup.png');
+  }
+
+  /* Down Arrow (Bottom) */
+  ::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url('/Scrollbar/arrowdown.png');
+  }
+
+  .shimmer-text {
+    z-index: 1;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px #fff3;
+    filter: drop-shadow(1.5px 1.5px #000) drop-shadow(0 0 8px #8ec5fc66) drop-shadow(0 0 16px #8ec5fc33);
+    background: linear-gradient(120deg, #fff, #e0c3fc, #8ec5fc, #f9f9f9, #ffdde1) 0 0 / 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+    position: relative;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .emerald-glow {
+    box-shadow: 0 0 15px var(--osrs-emerald);
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
